@@ -1,19 +1,5 @@
 # 01 — Physical Network
 
-## Network Overview
-
-The following diagram shows the high-level architecture of the SOC home lab.
-
-![Network Overview](./network-overview.png)
-
-## Detailed Home Lab Network Architecture
-
-The following diagram shows the detailed physical network, virtualization layer, bridged networking configuration, and SOC virtual machines.
-
-![Detailed Home Lab Network Architecture](./home-lab-network-diagram.png)
-
-# 01 — Physical Network
-
 ## Overview
 
 This section documents the physical network foundation of my
@@ -34,22 +20,6 @@ network configuration.
 ---
 
 ## Network Architecture
-
-The overall network path is:
-
-Internet
-↓
-Home Wi-Fi Router
-↓
-Local Wi-Fi Network
-↓
-Windows 11 Physical Host
-↓
-VMware Workstation
-↓
-Bridged Network Adapter
-↓
-SOC Virtual Machines
 
 ### Network Overview
 
