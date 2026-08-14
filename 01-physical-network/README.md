@@ -5,17 +5,10 @@
 This section documents the physical network foundation of my
 SOC home lab.
 
-The lab is hosted on a physical Windows 11 computer that is
-connected to the home network through Wi-Fi.
-
-VMware Workstation is installed on the Windows 11 physical
-host and is used to run the virtual machines that make up the
-SOC laboratory.
-
-The virtual machines use a bridged network adapter, allowing
-them to connect through the physical host's network connection
-and communicate with the local network according to their
-network configuration.
+The lab is hosted on a physical **Windows 11** computer connected
+to the home network through **Wi-Fi**. **VMware Workstation** runs
+the virtual machines, which use a **bridged network adapter** to
+connect through the host's network connection.
 
 ---
 
@@ -59,10 +52,6 @@ home network.
 The Internet connection is provided through the home Wi-Fi
 router.
 
-The Internet is shown in the architecture diagram to
-represent the external network from which the home network
-receives connectivity.
-
 No personal Internet information or public IP address is
 included in this repository.
 
@@ -79,57 +68,22 @@ Windows 11 computer and the local network.
 The router also provides the connection between the local
 network and the Internet.
 
-For security and privacy reasons, sensitive router
-information is not included in this repository.
+---
 
-This includes:
 
-- Wi-Fi passwords
-- Router administrator credentials
-- Public IP addresses
-- Sensitive network configuration
-- Other personally identifiable network information
+## 4. Physical Host — Windows 11
+
+The physical host runs Windows 11 and provides the hardware
+resources for the entire SOC laboratory.
+
+VMware Workstation is installed on the host and is responsible
+for running the individual virtual machines.
+
+The physical host connects to the home network through Wi-Fi.
 
 ---
 
-## 4. Local Area Network (LAN)
-
-The home Wi-Fi network acts as the local area network (LAN)
-for this laboratory environment.
-
-The Windows 11 physical host connects to this LAN using its
-Wi-Fi network adapter.
-
-The virtual machines use VMware's bridged network
-configuration to connect through the physical host's network
-connection.
-
-The local network therefore provides the communication
-environment used by the physical host and the virtual
-machines.
-
----
-
-## 5. Physical Host — Windows 11
-
-The physical host is a Windows 11 computer.
-
-This computer provides the hardware resources required to
-operate the SOC home lab.
-
-The physical host is connected to the home network through
-Wi-Fi.
-
-VMware Workstation is installed on the Windows 11 host and
-provides the virtualization platform for the laboratory.
-
-The Windows 11 operating system is therefore the host
-operating system, while the other operating systems in the
-lab run as virtual machines.
-
----
-
-## 6. VMware Workstation
+## 5. VMware Workstation
 
 VMware Workstation provides the virtualization layer of the
 SOC home lab.
@@ -155,7 +109,7 @@ documented in later sections of this project.
 
 ---
 
-## 7. Bridged Networking
+## 6. Bridged Networking
 
 The virtual machines use a bridged network adapter in VMware
 Workstation.
@@ -169,13 +123,13 @@ In this laboratory, the physical host uses Wi-Fi.
 The simplified network path is:
 
 Physical Windows 11 Host
-↓
+ ➜ 
 Physical Wi-Fi Network Adapter
-↓
+ ➜ 
 VMware Workstation
-↓
+ ➜ 
 Bridged Virtual Network Adapter
-↓
+ ➜ 
 Virtual Machine
 
 Bridged networking was selected to allow the virtual
@@ -185,7 +139,7 @@ network and the individual virtual machines.
 
 ---
 
-## 8. Why Bridged Networking Was Selected
+## 7. Why Bridged Networking Was Selected
 
 Bridged networking was selected because the SOC laboratory
 requires realistic network communication between the
@@ -207,34 +161,23 @@ path used by the Windows 11 host.
 
 ---
 
-## 9. Promiscuous Mode
+## 8. Promiscuous Mode
 
 Promiscuous mode is enabled as part of the VMware network
-configuration for the laboratory.
+configuration.
 
-Promiscuous mode affects which network frames a virtual
-network interface is allowed to receive.
+Promiscuous mode controls which network frames a virtual network
+interface is allowed to receive. However, enabling it does not
+automatically provide visibility into all traffic on the physical
+Wi-Fi network.
 
-It is important to note that enabling promiscuous mode does
-not automatically provide visibility into every packet on
-the physical Wi-Fi network.
-
-Actual network visibility depends on factors such as:
-
-- Physical network topology
-- Wi-Fi adapter capabilities
-- VMware network configuration
-- Virtual network configuration
-- How traffic is delivered to the virtual interface
-- The specific monitoring configuration
-
-Therefore, promiscuous mode is documented as part of the
-network configuration rather than being described as a
-guarantee of complete network traffic visibility.
+Actual traffic visibility depends on the network topology,
+wireless adapter capabilities, VMware configuration, and the
+specific monitoring setup.
 
 ---
 
-## 10. How the Virtual Machines Communicate
+## 9. How the Virtual Machines Communicate
 
 The virtual machines communicate through their configured
 virtual network interfaces.
@@ -242,17 +185,17 @@ virtual network interfaces.
 The general communication path is:
 
 Internet
-↓
+ ➜ 
 Home Wi-Fi Router
-↓
+ ➜ 
 Local Wi-Fi Network
-↓
+ ➜ 
 Windows 11 Physical Host
-↓
+ ➜ 
 VMware Workstation
-↓
+ ➜ 
 Bridged Network Adapter
-↓
+ ➜ 
 SOC Virtual Machines
 
 The virtual machines can communicate with one another
@@ -269,7 +212,7 @@ place.
 
 ---
 
-## 11. SOC Virtual Machines
+## 10. SOC Virtual Machines
 
 The physical host runs several virtual machines that form the
 SOC laboratory.
@@ -317,34 +260,25 @@ All testing is performed only against authorized laboratory
 systems.
 
 ---
+## Security Considerations
 
-## 12. Network Design Summary
+This is an educational and controlled SOC home laboratory.
 
-The physical and virtual network can be summarized as:
+Security testing is performed only against systems intentionally
+included in the lab.
 
-```text
-Internet
-   │
-   ▼
-Home Wi-Fi Router
-   │
-   │ Wi-Fi
-   ▼
-Windows 11 Physical Host
-   │
-   ▼
-VMware Workstation
-   │
-   ▼
-Bridged Network Adapter
-   │
-   ├── Windows 10
-   │
-   ├── Parrot OS
-   │      └── Splunk
-   │
-   ├── Ubuntu
-   │
-   ├── IBM QRadar
-   │
-   └── Kali Linux
+Because the virtual machines use bridged networking, care must be
+taken to avoid unintended interaction with unrelated devices on
+the home network.
+
+The following information should never be committed to the
+public repository:
+- Passwords and credentials
+- API keys and authentication tokens
+- Private SSH keys
+- Wi-Fi credentials
+- Public IP addresses
+- Personal information
+- Sensitive network configuration
+
+---
