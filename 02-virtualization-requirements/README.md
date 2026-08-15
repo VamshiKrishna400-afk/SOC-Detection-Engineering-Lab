@@ -4,13 +4,13 @@
 
 | Resource | Requirement |
 |---|---|
-| Host Operating System | Windows / Linux |
-| CPU | 8+ logical cores recommended |
-| RAM | 32 GB minimum / 64 GB preferred |
+| Host Operating System | Windows |
+| CPU | 16+ logical cores recommended |
+| RAM | 8 GB minimum / 16 GB preferred |
 | Storage | 500 GB+ SSD recommended |
 | Network | Ethernet or Wi-Fi |
 | Virtualization | Intel VT-x / AMD-V enabled |
-| Hypervisor | Oracle VirtualBox |
+| Hypervisor | Oracle VirtualBox or VMWare workstation|
 | Network Mode | Bridged Adapter |
 
 ### Usage
@@ -31,7 +31,6 @@ The physical host provides the CPU, RAM, storage, and network resources required
 | RAM | 6 GB |
 | Storage | 50 GB |
 | Network Adapter | Bridged Adapter |
-| IP Address | [Lab IP] |
 | Purpose | Monitored Endpoint |
 | Role | Security Telemetry Source |
 
@@ -51,7 +50,6 @@ Windows 10 acts as the primary monitored endpoint. It generates Windows Security
 | RAM | 3 GB |
 | Storage | 30 GB |
 | Network Adapter | Bridged Adapter |
-| IP Address | [Lab IP] |
 | Purpose | Linux Endpoint |
 | Role | Security Telemetry Source |
 
@@ -71,7 +69,6 @@ Ubuntu acts as a Linux endpoint within the SOC lab. It generates Linux authentic
 | RAM | 8 GB |
 | Storage | 250 GB |
 | Network Adapter | Bridged Adapter |
-| IP Address | 192.168.29.55 |
 | Purpose | SIEM |
 | Role | Security Event Collection, Correlation and Monitoring |
 
@@ -93,7 +90,6 @@ IBM QRadar acts as one of the two SIEM platforms in the SOC lab. It receives sec
 | RAM | 3 GB |
 | Storage | 40 GB |
 | Network Adapter | Bridged Adapter |
-| IP Address | [Lab IP] |
 | Purpose | Security Testing |
 | Role | Controlled Attack Simulation and Security Assessment |
 
@@ -113,7 +109,6 @@ Kali Linux acts as the primary controlled attacker/security-testing workstation.
 | RAM | 4 GB |
 | Storage | 80 GB |
 | Network Adapter | Bridged Adapter |
-| IP Address | [Lab IP] |
 | Purpose | Splunk SIEM and Security Analysis |
 | Role | Splunk Server and Security Analysis Workstation |
 
@@ -139,7 +134,7 @@ Parrot OS can also provide security-testing and analysis capabilities when requi
 
 | Resource | Configuration |
 |---|---|
-| Hypervisor | Oracle VirtualBox |
+| Hypervisor | Oracle VirtualBox  or VMWare Workstation |
 | Hardware Virtualization | Intel VT-x / AMD-V |
 | Network Type | Bridged Adapter |
 | Promiscuous Mode | Enabled |
