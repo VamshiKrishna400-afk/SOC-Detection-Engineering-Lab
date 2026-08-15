@@ -162,42 +162,8 @@ Promiscuous mode is enabled as part of the lab's network-visibility configuratio
 | Parrot OS + Splunk | 4 cores | 4 GB | 80 GB | Splunk SIEM |
 
 ---
-
 ## 5. SOC Lab Usage
 
 The virtual machines work together to create the SOC home-lab environment:
 
-```text
-                         Local Network
-                              |
-                         VirtualBox
-                              |
-          +-------------------+-------------------+
-          |          |         |         |        |
-          v          v         v         v        v
-     Windows 10   Ubuntu    QRadar    Kali    Parrot OS
-     Endpoint     Linux      SIEM     Testing    |
-          |          |                           |
-          |          |                           v
-          |          |                         Splunk
-          |          |                           |
-          +----------+---------------------------+
-                     |
-              Security Telemetry
-                     |
-             +-------+-------+
-             |               |
-             v               v
-           Splunk          QRadar
-             |               |
-             +-------+-------+
-                     |
-                Detections
-                     |
-                   Alerts
-                     |
-                Investigation
-                     |
-             MITRE ATT&CK Mapping
-                     |
-              Incident Response
+![SOC Virtual Environment](soc-virtual-environment.png)
