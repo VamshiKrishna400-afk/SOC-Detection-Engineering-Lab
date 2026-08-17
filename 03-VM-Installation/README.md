@@ -177,3 +177,19 @@ Use the Parrot OS VM resource allocation documented in the virtualization requir
 - Network: Bridged Adapter
 
 ---
+
+## VM Usage Strategy
+
+The SOC home lab does not require all virtual machines to run simultaneously. 
+The virtual machines are started selectively depending on the operating system 
+being monitored and the SIEM platform being used.
+
+This approach reduces the CPU, RAM, and storage requirements on the physical 
+host while allowing different SOC detection and investigation scenarios to 
+be performed.
+
+The lab uses the following combinations instead of running all VMs simultaneously:
+
+![Lab Scenario Architecture](lab-scenario-architecture.png)
+
+---
