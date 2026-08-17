@@ -1,4 +1,4 @@
-# 03 — Oracle VirtualBox / VMware Workstation Installation
+# 03 — Virtualization Platform and Operating Systems Installation
 
 This section provides video resources for installing and configuring the virtualization platforms and deploying the operating systems used in the SOC home lab.
 
